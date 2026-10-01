@@ -123,6 +123,8 @@ const STR = {
     dam: 'Dam (Mother)', sireDesc: 'Buck / Sire Used',
     litterSize: 'Litter Size', kidsAlive: 'Kids Alive', kidsDead: 'Stillborn / Died',
     maleKids: 'Male Kids', femaleKids: 'Female Kids', complications: 'Complications',
+    crossingDate: 'Crossing / Mating Date', expectedDelivery: 'Expected Delivery',
+    addKidsToHerd: 'Auto-add live kids to animal register',
     // Qurbani orders
     qurbani: 'Qurbani Orders', qurbaniOrder: 'Qurbani Order', addQurbaniOrder: 'Add Order',
     customerName: 'Customer Name', advanceAmount: 'Advance Paid', deliveryDate: 'Delivery Date',
@@ -247,6 +249,8 @@ const STR = {
     dam: 'ماں', sireDesc: 'نر / باپ',
     litterSize: 'بچوں کی تعداد', kidsAlive: 'زندہ بچے', kidsDead: 'مردہ پیدا',
     maleKids: 'نر بچے', femaleKids: 'مادہ بچے', complications: 'پیچیدگیاں',
+    crossingDate: 'ملاپ کی تاریخ', expectedDelivery: 'متوقع ڈیلیوری',
+    addKidsToHerd: 'زندہ بچے خودکار ریوڑ میں شامل کریں',
     // قربانی آرڈر
     qurbani: 'قربانی آرڈر', qurbaniOrder: 'قربانی آرڈر', addQurbaniOrder: 'آرڈر شامل کریں',
     customerName: 'گاہک کا نام', advanceAmount: 'پیشگی رقم', deliveryDate: 'ڈیلیوری تاریخ',
