@@ -50,6 +50,15 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-app
 .login-card { border: 0; border-radius: 16px; }
 #toggle-pw { z-index: 5; }
 
+/* Login page goat farm visuals */
+#view-login { background: linear-gradient(175deg,#ffe0b2 0%,#b3e5fc 20%,#e8f5e9 58%,#c8e6c9 100%); position: relative; overflow: hidden; }
+[data-bs-theme="dark"] #view-login { background: linear-gradient(175deg,#1a0600 0%,#030d1c 22%,#0a180a 60%,#0a1a0a 100%); }
+.login-landscape { position: fixed; bottom: 0; left: 0; right: 0; pointer-events: none; z-index: 0; line-height: 0; }
+[data-bs-theme="dark"] .login-landscape { opacity: 0.2; }
+.login-wrap { position: relative; z-index: 1; padding-bottom: 135px; }
+.login-mascot { display: flex; justify-content: center; margin-bottom: 6px; filter: drop-shadow(0 5px 14px rgba(0,70,20,0.2)); }
+.login-goat-svg { width: min(190px,48vw); height: auto; }
+
 /* Layout */
 #view-app { min-height: 100vh; }
 #sidebar { position: fixed; top: 0; bottom: 0; left: 0; width: var(--sidebar-w); background: var(--bs-body-bg); border-right: 1px solid var(--bs-border-color); z-index: 1020; }

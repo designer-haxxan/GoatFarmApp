@@ -29,7 +29,100 @@
 
   <!-- Login -->
   <div id="view-login" class="d-none">
+    <!-- Farm landscape strip pinned to page bottom -->
+    <div class="login-landscape" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 130" preserveAspectRatio="xMidYMax slice" style="width:100%;height:130px;display:block">
+        <!-- Back hills -->
+        <path d="M0 95 Q80 45 190 70 Q300 45 400 75 L400 130 L0 130Z" fill="#a5d6a7"/>
+        <!-- Mid hills -->
+        <path d="M0 112 Q70 75 155 95 Q240 72 325 92 Q368 82 400 100 L400 130 L0 130Z" fill="#81c784"/>
+        <!-- Foreground grass -->
+        <path d="M0 122 Q200 112 400 120 L400 130 L0 130Z" fill="#66bb6a"/>
+        <!-- Left pine tree -->
+        <rect x="65" y="70" width="6" height="40" rx="2" fill="#3e2a08"/>
+        <polygon points="68,64 49,94 87,94" fill="#2e7d32"/>
+        <polygon points="68,48 47,82 89,82" fill="#388e3c"/>
+        <polygon points="68,33 49,62 87,62" fill="#43a047"/>
+        <!-- Right pine tree -->
+        <rect x="320" y="70" width="6" height="40" rx="2" fill="#3e2a08"/>
+        <polygon points="323,64 304,94 342,94" fill="#2e7d32"/>
+        <polygon points="323,48 302,82 344,82" fill="#388e3c"/>
+        <polygon points="323,33 304,62 342,62" fill="#43a047"/>
+        <!-- Fence rails -->
+        <line x1="0" y1="107" x2="400" y2="107" stroke="#8d6e63" stroke-width="2.5"/>
+        <line x1="0" y1="115" x2="400" y2="115" stroke="#8d6e63" stroke-width="2.5"/>
+        <!-- Fence posts -->
+        <line x1="18" y1="99" x2="18" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="53" y1="99" x2="53" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="88" y1="99" x2="88" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="123" y1="99" x2="123" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="158" y1="99" x2="158" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="193" y1="99" x2="193" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="228" y1="99" x2="228" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="263" y1="99" x2="263" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="298" y1="99" x2="298" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="333" y1="99" x2="333" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="368" y1="99" x2="368" y2="123" stroke="#6d4c41" stroke-width="4"/>
+      </svg>
+    </div>
+
     <div class="login-wrap">
+      <!-- Goat mascot illustration -->
+      <div class="login-mascot" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" class="login-goat-svg">
+          <!-- Ground shadow -->
+          <ellipse cx="97" cy="133" rx="74" ry="7" fill="rgba(0,100,20,0.1)"/>
+          <!-- Body -->
+          <ellipse cx="82" cy="83" rx="55" ry="30" fill="#c9a870"/>
+          <!-- Belly highlight -->
+          <ellipse cx="82" cy="94" rx="36" ry="16" fill="#dfc090" opacity="0.5"/>
+          <!-- Neck fill -->
+          <path d="M 112,68 L 132,64 L 138,46 L 118,50 Z" fill="#c9a870"/>
+          <!-- Head -->
+          <ellipse cx="140" cy="52" rx="22" ry="19" fill="#c9a870"/>
+          <!-- Ear outer -->
+          <ellipse cx="126" cy="43" rx="11" ry="6" fill="#b08550" transform="rotate(-28 126 43)"/>
+          <!-- Ear inner -->
+          <ellipse cx="126" cy="43" rx="7.5" ry="3.5" fill="#c9907a" transform="rotate(-28 126 43)"/>
+          <!-- Horn back -->
+          <path d="M 130,34 Q 120,16 131,23" stroke="#5c3c1c" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <!-- Horn front -->
+          <path d="M 142,32 Q 134,14 147,22" stroke="#5c3c1c" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <!-- Snout -->
+          <ellipse cx="158" cy="58" rx="12" ry="9" fill="#b08550"/>
+          <!-- Nostrils -->
+          <circle cx="154" cy="57" r="2.4" fill="#5c3c1c"/>
+          <circle cx="161" cy="57" r="2.4" fill="#5c3c1c"/>
+          <!-- Smile -->
+          <path d="M 152,64 Q 158,68 164,64" stroke="#7a4c2a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <!-- Eye -->
+          <circle cx="148" cy="47" r="5" fill="#1a0c00"/>
+          <!-- Eye shine -->
+          <circle cx="150" cy="45" r="2.2" fill="white" opacity="0.7"/>
+          <!-- Beard -->
+          <path d="M 158,67 Q 163,80 157,87 Q 154,93 150,86 Q 147,93 143,85 Q 140,91 137,84 Q 134,79 138,68 Q 143,71 148,69 Q 153,68 158,67 Z" fill="#ecddb8"/>
+          <!-- Back legs -->
+          <rect x="40" y="108" width="14" height="24" rx="5" fill="#a07040"/>
+          <rect x="62" y="108" width="14" height="24" rx="5" fill="#a07040"/>
+          <!-- Back hooves -->
+          <rect x="40" y="126" width="14" height="6" rx="3" fill="#5c3c1e"/>
+          <rect x="62" y="126" width="14" height="6" rx="3" fill="#5c3c1e"/>
+          <!-- Front legs -->
+          <rect x="104" y="108" width="14" height="24" rx="5" fill="#a07040"/>
+          <rect x="126" y="108" width="14" height="24" rx="5" fill="#a07040"/>
+          <!-- Front hooves -->
+          <rect x="104" y="126" width="14" height="6" rx="3" fill="#5c3c1e"/>
+          <rect x="126" y="126" width="14" height="6" rx="3" fill="#5c3c1e"/>
+          <!-- Tail -->
+          <path d="M 27,76 Q 14,63 20,80" stroke="#c9a870" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <!-- Udder -->
+          <ellipse cx="80" cy="110" rx="12" ry="6" fill="#e0b898" opacity="0.7"/>
+          <!-- Grass tufts -->
+          <path d="M 22,132 L 25,122 L 28,132 L 31,121 L 34,132" stroke="#4caf50" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 158,132 L 161,122 L 164,132 L 167,121 L 170,132" stroke="#4caf50" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+
       <div class="card shadow-sm login-card">
         <div class="card-body p-4">
           <div class="text-center mb-4">
