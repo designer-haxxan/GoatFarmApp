@@ -94,7 +94,8 @@ const STR = {
     totalBulls: 'Bucks / Males', totalCalves: 'Kids / Young',
     todayProduction: "Today's Production", buyerBalance: 'Buyer Balance',
     sellerBalance: 'Seller Balance', recentActivity: 'Recent Activity',
-    quickActions: 'Quick Actions', recordMilk: 'Record Milk',
+    quickActions: 'Quick Actions', recordMilk: 'Record Milk', recordBreeding: 'Breeding Record',
+    kidsThisMonth: 'Kids This Month',
     // Login
     signIn: 'Sign In', username: 'Username', password: 'Password',
     signingIn: 'Signing in…', internetRequired: 'Internet is required to sign in. After sign-in, the app works offline.',
@@ -220,7 +221,8 @@ const STR = {
     totalBulls: 'نر جانور', totalCalves: 'بچے',
     todayProduction: 'آج کی پیداوار', buyerBalance: 'خریداروں کا بقایا',
     sellerBalance: 'فروخت کنندگان کا بقایا', recentActivity: 'حالیہ سرگرمی',
-    quickActions: 'فوری اعمال', recordMilk: 'دودھ ریکارڈ کریں',
+    quickActions: 'فوری اعمال', recordMilk: 'دودھ ریکارڈ کریں', recordBreeding: 'افزائش ریکارڈ',
+    kidsThisMonth: 'اس ماہ بچے',
     // Login
     signIn: 'لاگ ان', username: 'صارف نام', password: 'پاس ورڈ',
     signingIn: 'لاگ ان ہو رہا ہے…', internetRequired: 'لاگ ان کے لیے انٹرنیٹ ضروری ہے۔ لاگ ان کے بعد آف لائن کام ہوتا ہے۔',

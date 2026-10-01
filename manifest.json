@@ -13,7 +13,7 @@
     { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ],
   "shortcuts": [
-    { "name": "Record Milk", "url": "./#/milk", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Breeding Record", "url": "./#/kidding", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
     { "name": "Animals", "url": "./#/animals", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
     { "name": "Milk Sales", "url": "./#/milkSales", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
   ],
