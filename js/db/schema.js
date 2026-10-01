@@ -2,12 +2,13 @@ import { CONFIG } from '../config.js';
 
 export const DB_NAME = `${CONFIG.APP_ID}_db`;
 export const LEGACY_DB_NAME = 'cattlefarm_db';
-export const DB_VERSION = 2;
+export const DB_VERSION = 3;
 
 // Stores included in backups (all business data).
 export const DATA_STORES = [
   'breeds', 'animals', 'milkRecords', 'healthEvents', 'breedingRecords', 'weightRecords',
-  'animalTxns', 'milkSales', 'farmExpenses',
+  'feedRecords', 'kiddingRecords',
+  'animalTxns', 'milkSales', 'farmExpenses', 'qurbaniOrders',
   'buyers', 'sellers', 'accounts', 'vouchers', 'entries', 'auditLog', 'meta',
 ];
 
@@ -75,6 +76,18 @@ const STORES = {
     },
   },
   auditLog: { indexes: { at: 'at' } },
+  // Daily feed logs
+  feedRecords: {
+    indexes: { animalId: 'animalId', date: 'date' },
+  },
+  // Kidding / litter birth records
+  kiddingRecords: {
+    indexes: { damId: 'damId', date: 'date' },
+  },
+  // Qurbani (Eid sacrifice) customer orders
+  qurbaniOrders: {
+    indexes: { number: ['number', true], date: 'date', status: 'status', animalId: 'animalId' },
+  },
 };
 
 export const SYSTEM_ACCOUNTS = [
@@ -90,23 +103,54 @@ export const SYSTEM_ACCOUNTS = [
   { id: 'equity',       name: 'Opening Balance Equity',   type: 'equity'  },
 ];
 
-// Default Pakistani cattle breeds
+// Default Pakistani livestock breeds — goat/sheep first, then cattle/buffalo
 export const DEFAULT_BREEDS = [
-  { id: 'sahiwal',    name: 'Sahiwal',          species: 'cattle'  },
+  // Goat breeds
+  { id: 'beetal',     name: 'Beetal',            species: 'goat'    },
+  { id: 'teddy',      name: 'Teddy',             species: 'goat'    },
+  { id: 'ddp',        name: 'Dera Din Panah',    species: 'goat'    },
+  { id: 'kamori',     name: 'Kamori',            species: 'goat'    },
+  { id: 'barbari',    name: 'Barbari',           species: 'goat'    },
+  { id: 'nachi',      name: 'Nachi',             species: 'goat'    },
+  { id: 'gulabi',     name: 'Gulabi',            species: 'goat'    },
+  { id: 'pateri',     name: 'Pateri',            species: 'goat'    },
+  { id: 'khurasani',  name: 'Khurasani',         species: 'goat'    },
+  { id: 'goat_local', name: 'Local Desi Goat',   species: 'goat'    },
+  // Sheep breeds
+  { id: 'lohi',       name: 'Lohi',              species: 'sheep'   },
+  { id: 'kajli',      name: 'Kajli',             species: 'sheep'   },
+  { id: 'kali',       name: 'Kali (Balochi)',     species: 'sheep'   },
+  { id: 'thalli',     name: 'Thalli',            species: 'sheep'   },
+  { id: 'sheep_local',name: 'Local Desi Sheep',  species: 'sheep'   },
+  // Cattle breeds
+  { id: 'sahiwal',    name: 'Sahiwal',           species: 'cattle'  },
+  { id: 'cholistani', name: 'Cholistani',        species: 'cattle'  },
+  { id: 'frisian',    name: 'Holstein Frisian',  species: 'cattle'  },
+  { id: 'jersey',     name: 'Jersey',            species: 'cattle'  },
+  { id: 'tharparkar', name: 'Tharparkar',        species: 'cattle'  },
+  { id: 'bhagnari',   name: 'Bhagnari',          species: 'cattle'  },
+  { id: 'crossbred',  name: 'Crossbred',         species: 'cattle'  },
+  // Buffalo breeds
   { id: 'nili_ravi',  name: 'Nili-Ravi',         species: 'buffalo' },
-  { id: 'cholistani', name: 'Cholistani',         species: 'cattle'  },
-  { id: 'frisian',    name: 'Holstein Frisian',   species: 'cattle'  },
-  { id: 'jersey',     name: 'Jersey',             species: 'cattle'  },
-  { id: 'tharparkar', name: 'Tharparkar',         species: 'cattle'  },
-  { id: 'bhagnari',   name: 'Bhagnari',           species: 'cattle'  },
-  { id: 'kankrej',    name: 'Kankrej',            species: 'cattle'  },
-  { id: 'murrah',     name: 'Murrah',             species: 'buffalo' },
-  { id: 'surti',      name: 'Surti',              species: 'buffalo' },
-  { id: 'crossbred',  name: 'Crossbred',          species: 'cattle'  },
-  { id: 'local',      name: 'Local / Desi',       species: 'cattle'  },
+  { id: 'murrah',     name: 'Murrah',            species: 'buffalo' },
+  { id: 'surti',      name: 'Surti',             species: 'buffalo' },
 ];
 
 export function upgrade(db, oldVersion, t) {
+  if (oldVersion < 3 && oldVersion >= 1) {
+    // Add goat-farm stores: feedRecords, kiddingRecords, qurbaniOrders
+    const NEW_V3 = ['feedRecords', 'kiddingRecords', 'qurbaniOrders'];
+    for (const name of NEW_V3) {
+      if (!Array.from(db.objectStoreNames).includes(name)) {
+        const def = STORES[name];
+        const os = db.createObjectStore(name, { keyPath: 'id' });
+        for (const [idx, spec] of Object.entries(def.indexes || {})) {
+          const [keyPath, unique] = Array.isArray(spec) ? spec : [spec, false];
+          os.createIndex(idx, keyPath, { unique: !!unique });
+        }
+      }
+    }
+  }
   if (oldVersion < 2 && oldVersion >= 1) {
     // Fix animalDate: was compound ['animalId','date'], must be simple string field index
     const mr = t.objectStore('milkRecords');

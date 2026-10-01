@@ -24,7 +24,8 @@ function progressBar(pct) {
 }
 
 function calcExpectedCalving(inseminationDate, species) {
-  const days = (species === 'buffalo' || species === 'murrah') ? CONFIG.GESTATION.buffalo : CONFIG.GESTATION.cattle;
+  const days = CONFIG.GESTATION[species] ??
+    (species === 'buffalo' ? CONFIG.GESTATION.buffalo : CONFIG.GESTATION.cattle);
   const d = new Date(inseminationDate);
   d.setDate(d.getDate() + days);
   return d.toISOString().slice(0, 10);

@@ -6,7 +6,7 @@ const LANG_KEY = storageKey('lang');
 
 const STR = {
   en: {
-    appName: 'Cattle Farm Manager',
+    appName: 'Bakri Farm Manager',
     // Nav sections
     secMain: 'Main', secHerd: 'Herd', secFinance: 'Finance', secAdmin: 'Administration',
     // Routes
@@ -25,10 +25,15 @@ const STR = {
     addAnimal: 'Add Animal', editAnimal: 'Edit Animal',
     photo: 'Photo', photoHint: 'Optional photo (auto-compressed)',
     purchaseDate: 'Purchase Date', purchasePrice: 'Purchase Price',
-    // Common Pakistani breeds
+    // Common Pakistani goat breeds
+    breedBeetal: 'Beetal', breedTeddy: 'Teddy', breedDDP: 'Dera Din Panah',
+    breedKamori: 'Kamori', breedBarbari: 'Barbari', breedNachi: 'Nachi',
+    breedGulabi: 'Gulabi', breedPateri: 'Pateri', breedKhurasani: 'Khurasani',
+    // Common Pakistani sheep / cattle breeds
+    breedLohi: 'Lohi', breedKajli: 'Kajli', breedKali: 'Kali (Balochi)', breedThalli: 'Thalli',
     breedSahiwal: 'Sahiwal', breedNiliRavi: 'Nili-Ravi', breedCholistani: 'Cholistani',
     breedFrisian: 'Holstein Frisian', breedJersey: 'Jersey', breedTharparkar: 'Tharparkar',
-    breedBhagnari: 'Bhagnari', breedKankrej: 'Kankrej', breedMurrah: 'Murrah',
+    breedBhagnari: 'Bhagnari', breedMurrah: 'Murrah',
     // Milk
     milkRecord: 'Milk Record', morning: 'Morning (L)', evening: 'Evening (L)',
     totalMilk: 'Total (L)', liters: 'Liters', addMilkRecord: 'Add Record',
@@ -85,8 +90,8 @@ const STR = {
     from: 'From', to: 'To', today: 'Today', month: 'Month', all: 'All', apply: 'Apply',
     noRecords: 'No records found', loading: 'Loading…', pleaseWait: 'Please wait…',
     // Dashboard
-    totalAnimals: 'Total Animals', activeCows: 'Active Cows / Buffaloes',
-    totalBulls: 'Bulls', totalCalves: 'Calves',
+    totalAnimals: 'Total Animals', activeCows: 'Active Goats / Animals',
+    totalBulls: 'Bucks / Males', totalCalves: 'Kids / Young',
     todayProduction: "Today's Production", buyerBalance: 'Buyer Balance',
     sellerBalance: 'Seller Balance', recentActivity: 'Recent Activity',
     quickActions: 'Quick Actions', recordMilk: 'Record Milk',
@@ -107,10 +112,26 @@ const STR = {
     backup2: 'Backup', restore: 'Restore', createBackup: 'Create Backup',
     restoreBackup: 'Restore from Backup', lastBackup: 'Last backup',
     backupWarning: 'Restoring will replace all current data. This cannot be undone.',
+    // Feed management
+    feed: 'Feed Management', feedRecord: 'Feed Record', feedType: 'Feed Type',
+    feedQty: 'Quantity (kg)', addFeedRecord: 'Add Feed Record',
+    hay: 'Hay / Straw', concentrates: 'Concentrates / Pellets',
+    greenFodder: 'Green Fodder', grain: 'Grain / Barley', dryFodder: 'Dry Fodder', otherFeed: 'Other Feed',
+    dailyFeed: 'Daily Feed',
+    // Kidding records
+    kidding: 'Kidding Records', kiddingRecord: 'Kidding Record', addKiddingRecord: 'Add Kidding Record',
+    dam: 'Dam (Mother)', sireDesc: 'Buck / Sire Used',
+    litterSize: 'Litter Size', kidsAlive: 'Kids Alive', kidsDead: 'Stillborn / Died',
+    maleKids: 'Male Kids', femaleKids: 'Female Kids', complications: 'Complications',
+    // Qurbani orders
+    qurbani: 'Qurbani Orders', qurbaniOrder: 'Qurbani Order', addQurbaniOrder: 'Add Order',
+    customerName: 'Customer Name', advanceAmount: 'Advance Paid', deliveryDate: 'Delivery Date',
+    orderStatus: 'Order Status', totalOrders: 'Total Orders',
+    booked: 'Booked', ready: 'Ready', delivered: 'Delivered', cancelled: 'Cancelled',
   },
 
   ur: {
-    appName: 'مویشی فارم منیجر',
+    appName: 'بکری فارم منیجر',
     // Nav sections
     secMain: 'مرکزی', secHerd: 'ریوڑ', secFinance: 'مالیات', secAdmin: 'انتظامیہ',
     // Routes
@@ -129,9 +150,15 @@ const STR = {
     addAnimal: 'جانور شامل کریں', editAnimal: 'جانور ترمیم کریں',
     photo: 'تصویر', photoHint: 'اختیاری تصویر (خودکار سکڑاؤ)',
     purchaseDate: 'خریداری کی تاریخ', purchasePrice: 'خریداری کی قیمت',
+    // بکری کی نسلیں
+    breedBeetal: 'بیتل', breedTeddy: 'ٹیڈی', breedDDP: 'ڈیرہ دین پناہ',
+    breedKamori: 'کاموری', breedBarbari: 'بربری', breedNachi: 'ناچی',
+    breedGulabi: 'گلابی', breedPateri: 'پاٹیری', breedKhurasani: 'خراسانی',
+    // بھیڑ / گائے کی نسلیں
+    breedLohi: 'لوہی', breedKajli: 'کاجلی', breedKali: 'کالی (بلوچی)', breedThalli: 'تھلی',
     breedSahiwal: 'ساہیوال', breedNiliRavi: 'نیلی راوی', breedCholistani: 'چولستانی',
     breedFrisian: 'ہولسٹائن فریزین', breedJersey: 'جرسی', breedTharparkar: 'تھرپارکر',
-    breedBhagnari: 'بھگناری', breedKankrej: 'کانکریج', breedMurrah: 'مرہ',
+    breedBhagnari: 'بھگناری', breedMurrah: 'مرہ',
     // Milk
     milkRecord: 'دودھ ریکارڈ', morning: 'صبح (لیٹر)', evening: 'شام (لیٹر)',
     totalMilk: 'کل (لیٹر)', liters: 'لیٹر', addMilkRecord: 'ریکارڈ شامل کریں',
@@ -187,8 +214,8 @@ const STR = {
     from: 'سے', to: 'تک', today: 'آج', month: 'مہینہ', all: 'سب', apply: 'لاگو',
     noRecords: 'کوئی ریکارڈ نہیں ملا', loading: 'لوڈ ہو رہا ہے…', pleaseWait: 'براہ کرم انتظار کریں…',
     // Dashboard
-    totalAnimals: 'کل جانور', activeCows: 'فعال گائے / بھینسیں',
-    totalBulls: 'سانڈ', totalCalves: 'بچھڑے',
+    totalAnimals: 'کل جانور', activeCows: 'فعال بکریاں / جانور',
+    totalBulls: 'نر جانور', totalCalves: 'بچے',
     todayProduction: 'آج کی پیداوار', buyerBalance: 'خریداروں کا بقایا',
     sellerBalance: 'فروخت کنندگان کا بقایا', recentActivity: 'حالیہ سرگرمی',
     quickActions: 'فوری اعمال', recordMilk: 'دودھ ریکارڈ کریں',
@@ -209,6 +236,22 @@ const STR = {
     backup2: 'بیک اپ', restore: 'بحالی', createBackup: 'بیک اپ بنائیں',
     restoreBackup: 'بیک اپ سے بحالی', lastBackup: 'آخری بیک اپ',
     backupWarning: 'بحالی سے تمام موجودہ ڈیٹا حذف ہو جائے گا۔ یہ عمل واپس نہیں ہو سکتا۔',
+    // چارہ مینجمنٹ
+    feed: 'چارہ مینجمنٹ', feedRecord: 'چارہ ریکارڈ', feedType: 'چارے کی قسم',
+    feedQty: 'مقدار (کلو)', addFeedRecord: 'چارہ ریکارڈ شامل کریں',
+    hay: 'گھاس / بھوسہ', concentrates: 'کنسنٹریٹ / پیلٹ',
+    greenFodder: 'سبز چارہ', grain: 'اناج / جو', dryFodder: 'خشک چارہ', otherFeed: 'دیگر چارہ',
+    dailyFeed: 'روزانہ چارہ',
+    // بچے دینے کے ریکارڈ
+    kidding: 'بچے دینے کے ریکارڈ', kiddingRecord: 'بچے کا ریکارڈ', addKiddingRecord: 'ریکارڈ شامل کریں',
+    dam: 'ماں', sireDesc: 'نر / باپ',
+    litterSize: 'بچوں کی تعداد', kidsAlive: 'زندہ بچے', kidsDead: 'مردہ پیدا',
+    maleKids: 'نر بچے', femaleKids: 'مادہ بچے', complications: 'پیچیدگیاں',
+    // قربانی آرڈر
+    qurbani: 'قربانی آرڈر', qurbaniOrder: 'قربانی آرڈر', addQurbaniOrder: 'آرڈر شامل کریں',
+    customerName: 'گاہک کا نام', advanceAmount: 'پیشگی رقم', deliveryDate: 'ڈیلیوری تاریخ',
+    orderStatus: 'آرڈر کی حالت', totalOrders: 'کل آرڈر',
+    booked: 'بک شدہ', ready: 'تیار', delivered: 'حوالہ کیا', cancelled: 'منسوخ',
   },
 };
 

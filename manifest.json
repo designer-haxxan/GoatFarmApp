@@ -1,7 +1,7 @@
 {
-  "name": "Cattle Farm Manager",
-  "short_name": "Cattle Farm",
-  "description": "Pakistan cattle farm management: herd, milk, breeding, health and accounts — offline-first PWA.",
+  "name": "Bakri Farm Manager",
+  "short_name": "Bakri Farm",
+  "description": "Pakistan goat & livestock farm management: herd, milk, breeding, health and accounts — offline-first PWA.",
   "start_url": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
