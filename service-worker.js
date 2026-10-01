@@ -1,8 +1,8 @@
 /* Service worker: precaches the app shell and CDN libraries so the app loads fully offline.
    Bump VERSION whenever any cached file changes; clients update automatically. */
-const APP_ID = 'cattlefarm';
-const VERSION = `${APP_ID}-v1.0.3`;
-const isOwnCache = (key) => key.startsWith(`${APP_ID}-`) || /^disterp-/.test(key) || /^saleapp-v/.test(key);
+const APP_ID = 'bakrifarm';
+const VERSION = `${APP_ID}-v1.1.0`;
+const isOwnCache = (key) => key.startsWith(`${APP_ID}-`) || /^cattlefarm-/.test(key) || /^disterp-/.test(key) || /^saleapp-v/.test(key);
 const SHELL = [
   './', './index.html', './manifest.json', './css/app.css',
   './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png', './icons/apple-touch-icon.png', './icons/favicon-32.png',
@@ -11,8 +11,9 @@ const SHELL = [
   './js/db/idb.js', './js/db/schema.js',
   './js/modules/accounts.js', './js/modules/animals.js', './js/modules/animal-txns.js',
   './js/modules/backup.js', './js/modules/breeding.js', './js/modules/dashboard.js',
-  './js/modules/expenses.js', './js/modules/health.js', './js/modules/milk.js',
-  './js/modules/milk-sales.js', './js/modules/parties.js', './js/modules/reports.js',
+  './js/modules/expenses.js', './js/modules/feed.js', './js/modules/health.js',
+  './js/modules/kidding.js', './js/modules/milk.js', './js/modules/milk-sales.js',
+  './js/modules/parties.js', './js/modules/qurbani.js', './js/modules/reports.js',
   './js/modules/settings.js', './js/modules/vouchers.js', './js/modules/weights.js',
   './js/services/auth.js', './js/services/catalog.js', './js/services/posting.js',
 ];
