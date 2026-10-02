@@ -37,7 +37,7 @@ function hBars(rows, maxVal) {
     <div class="dbar-row">
       <div class="dbar-label">${label}</div>
       <div class="dbar-track"><div class="dbar-fill" style="width:${(value / maxVal * 100).toFixed(1)}%;background:${color}"></div></div>
-      <div class="dbar-val">${fmtNum(value)}</div>
+      <div class="dbar-val">${fmtCount(value)}</div>
     </div>`).join('');
 }
 
@@ -53,9 +53,11 @@ function vBars(cols, color = 'var(--bs-primary)') {
     </div>`).join('')}</div>`;
 }
 
+const fmtCount = (n) => Number.isInteger(n) ? n.toLocaleString('en-US') : fmtNum(n);
+
 // ── Legend item ────────────────────────────────────────────────────────────────
 function legendDot(color, label, value) {
-  return `<div class="dash-legend-item"><span class="dash-legend-dot" style="background:${color}"></span><span class="flex-grow-1">${label}</span><strong>${typeof value === 'string' ? value : fmtNum(value)}</strong></div>`;
+  return `<div class="dash-legend-item"><span class="dash-legend-dot" style="background:${color}"></span><span class="flex-grow-1">${label}</span><strong>${typeof value === 'string' ? value : fmtCount(value)}</strong></div>`;
 }
 
 // ── Chart card wrapper ─────────────────────────────────────────────────────────
