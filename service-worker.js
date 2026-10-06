@@ -1,7 +1,7 @@
 /* Service worker: precaches the app shell and CDN libraries so the app loads fully offline.
    Bump VERSION whenever any cached file changes; clients update automatically. */
 const APP_ID = 'bakrifarm';
-const VERSION = `${APP_ID}-v1.2.0`;
+const VERSION = `${APP_ID}-v1.2.1`;
 const isOwnCache = (key) => key.startsWith(`${APP_ID}-`) || /^cattlefarm-/.test(key) || /^disterp-/.test(key) || /^saleapp-v/.test(key);
 const SHELL = [
   './', './index.html', './manifest.json', './css/app.css',
