@@ -29,40 +29,91 @@
 
   <!-- Login -->
   <div id="view-login" class="d-none">
-    <!-- Farm landscape strip pinned to page bottom -->
+    <!-- Animated sky: sun/moon, clouds, birds -->
+    <div class="login-sky" aria-hidden="true">
+      <div class="login-sun-orb"></div>
+      <div class="login-moon-orb"></div>
+      <div class="lc lc1"></div>
+      <div class="lc lc2"></div>
+      <div class="lc lc3"></div>
+      <div class="login-bird lb1"></div>
+      <div class="login-bird lb2"></div>
+    </div>
+
+    <!-- Enhanced farm landscape pinned to page bottom -->
     <div class="login-landscape" aria-hidden="true">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 130" preserveAspectRatio="xMidYMax slice" style="width:100%;height:130px;display:block">
-        <!-- Back hills -->
-        <path d="M0 95 Q80 45 190 70 Q300 45 400 75 L400 130 L0 130Z" fill="#a5d6a7"/>
+        <!-- Far hills (light) -->
+        <path d="M0 92 Q55 50 130 72 Q200 42 278 66 Q338 42 400 62 L400 130 L0 130Z" fill="#c5e1a5"/>
         <!-- Mid hills -->
-        <path d="M0 112 Q70 75 155 95 Q240 72 325 92 Q368 82 400 100 L400 130 L0 130Z" fill="#81c784"/>
+        <path d="M0 108 Q70 74 158 94 Q244 70 328 92 Q368 80 400 98 L400 130 L0 130Z" fill="#a5d6a7"/>
         <!-- Foreground grass -->
-        <path d="M0 122 Q200 112 400 120 L400 130 L0 130Z" fill="#66bb6a"/>
-        <!-- Left pine tree -->
-        <rect x="65" y="70" width="6" height="40" rx="2" fill="#3e2a08"/>
-        <polygon points="68,64 49,94 87,94" fill="#2e7d32"/>
-        <polygon points="68,48 47,82 89,82" fill="#388e3c"/>
-        <polygon points="68,33 49,62 87,62" fill="#43a047"/>
-        <!-- Right pine tree -->
-        <rect x="320" y="70" width="6" height="40" rx="2" fill="#3e2a08"/>
-        <polygon points="323,64 304,94 342,94" fill="#2e7d32"/>
-        <polygon points="323,48 302,82 344,82" fill="#388e3c"/>
-        <polygon points="323,33 304,62 342,62" fill="#43a047"/>
+        <path d="M0 122 Q100 114 200 118 Q300 112 400 120 L400 130 L0 130Z" fill="#81c784"/>
+        <!-- Very front strip -->
+        <path d="M0 127 Q200 124 400 127 L400 130 L0 130Z" fill="#66bb6a"/>
+        <!-- Farmhouse -->
+        <rect x="180" y="80" width="44" height="34" rx="2" fill="#ffe0b2"/>
+        <polygon points="178,82 226,82 202,64" fill="#c62828"/>
+        <rect x="196" y="73" width="12" height="8" rx="1" fill="#ef9a9a" opacity="0.7"/>
+        <rect x="186" y="92" width="10" height="14" rx="1" fill="#8d6e63"/>
+        <rect x="200" y="90" width="11" height="10" rx="1" fill="#b3e5fc" opacity="0.9"/>
+        <rect x="214" y="90" width="9" height="10" rx="1" fill="#b3e5fc" opacity="0.9"/>
+        <!-- Smoke from chimney -->
+        <circle cx="220" cy="60" r="4" fill="rgba(200,200,200,0.4)"/>
+        <circle cx="223" cy="53" r="3.5" fill="rgba(200,200,200,0.3)"/>
+        <circle cx="221" cy="47" r="3" fill="rgba(200,200,200,0.2)"/>
+        <!-- Left pine cluster -->
+        <rect x="40" y="70" width="5" height="40" rx="2" fill="#4e342e"/>
+        <polygon points="42.5,64 27,90 58,90" fill="#1b5e20"/>
+        <polygon points="42.5,52 26,80 59,80" fill="#2e7d32"/>
+        <polygon points="42.5,40 28,66 57,66" fill="#388e3c"/>
+        <rect x="62" y="75" width="4" height="32" rx="2" fill="#4e342e"/>
+        <polygon points="64,70 52,92 76,92" fill="#2e7d32"/>
+        <polygon points="64,58 51,82 77,82" fill="#388e3c"/>
+        <!-- Right pine cluster -->
+        <rect x="323" y="70" width="5" height="40" rx="2" fill="#4e342e"/>
+        <polygon points="325.5,64 310,90 341,90" fill="#1b5e20"/>
+        <polygon points="325.5,52 309,80 342,80" fill="#2e7d32"/>
+        <polygon points="325.5,40 311,66 340,66" fill="#388e3c"/>
+        <rect x="344" y="75" width="4" height="32" rx="2" fill="#4e342e"/>
+        <polygon points="346,70 334,92 358,92" fill="#2e7d32"/>
+        <polygon points="346,58 333,82 359,82" fill="#388e3c"/>
+        <!-- Tiny goat on far hill -->
+        <ellipse cx="292" cy="76" rx="9" ry="5" fill="#c9a870" opacity="0.55"/>
+        <ellipse cx="300" cy="73" rx="4.5" ry="3.8" fill="#c9a870" opacity="0.55"/>
+        <line x1="287" y1="81" x2="286" y2="87" stroke="#a07040" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+        <line x1="291" y1="81" x2="290" y2="87" stroke="#a07040" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+        <line x1="295" y1="81" x2="294" y2="87" stroke="#a07040" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+        <line x1="299" y1="80" x2="298" y2="87" stroke="#a07040" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
         <!-- Fence rails -->
-        <line x1="0" y1="107" x2="400" y2="107" stroke="#8d6e63" stroke-width="2.5"/>
-        <line x1="0" y1="115" x2="400" y2="115" stroke="#8d6e63" stroke-width="2.5"/>
+        <line x1="0" y1="116" x2="400" y2="116" stroke="#8d6e63" stroke-width="2.5"/>
+        <line x1="0" y1="124" x2="400" y2="124" stroke="#8d6e63" stroke-width="2.5"/>
         <!-- Fence posts -->
-        <line x1="18" y1="99" x2="18" y2="123" stroke="#6d4c41" stroke-width="4"/>
-        <line x1="53" y1="99" x2="53" y2="123" stroke="#6d4c41" stroke-width="4"/>
-        <line x1="88" y1="99" x2="88" y2="123" stroke="#6d4c41" stroke-width="4"/>
-        <line x1="123" y1="99" x2="123" y2="123" stroke="#6d4c41" stroke-width="4"/>
-        <line x1="158" y1="99" x2="158" y2="123" stroke="#6d4c41" stroke-width="4"/>
-        <line x1="193" y1="99" x2="193" y2="123" stroke="#6d4c41" stroke-width="4"/>
-        <line x1="228" y1="99" x2="228" y2="123" stroke="#6d4c41" stroke-width="4"/>
-        <line x1="263" y1="99" x2="263" y2="123" stroke="#6d4c41" stroke-width="4"/>
-        <line x1="298" y1="99" x2="298" y2="123" stroke="#6d4c41" stroke-width="4"/>
-        <line x1="333" y1="99" x2="333" y2="123" stroke="#6d4c41" stroke-width="4"/>
-        <line x1="368" y1="99" x2="368" y2="123" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="12"  y1="109" x2="12"  y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="42"  y1="109" x2="42"  y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="72"  y1="109" x2="72"  y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="102" y1="109" x2="102" y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="132" y1="109" x2="132" y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="162" y1="109" x2="162" y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="240" y1="109" x2="240" y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="270" y1="109" x2="270" y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="300" y1="109" x2="300" y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="330" y1="109" x2="330" y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="360" y1="109" x2="360" y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <line x1="390" y1="109" x2="390" y2="130" stroke="#6d4c41" stroke-width="4"/>
+        <!-- Wildflowers -->
+        <circle cx="88"  cy="123" r="3.5" fill="#f06292"/><circle cx="88"  cy="123" r="1.8" fill="#fff"/>
+        <circle cx="150" cy="124" r="3"   fill="#ffb74d"/><circle cx="150" cy="124" r="1.5" fill="#fff"/>
+        <circle cx="252" cy="123" r="3.5" fill="#e91e63"/><circle cx="252" cy="123" r="1.8" fill="#fff"/>
+        <circle cx="314" cy="123" r="3"   fill="#ff9800"/><circle cx="314" cy="123" r="1.5" fill="#fff"/>
+        <line x1="88"  y1="125" x2="88"  y2="130" stroke="#388e3c" stroke-width="1.5"/>
+        <line x1="150" y1="126" x2="150" y2="130" stroke="#388e3c" stroke-width="1.5"/>
+        <line x1="252" y1="125" x2="252" y2="130" stroke="#388e3c" stroke-width="1.5"/>
+        <line x1="314" y1="125" x2="314" y2="130" stroke="#388e3c" stroke-width="1.5"/>
+        <!-- Grass tufts -->
+        <path d="M22,130 L24,122 L26,130 L28,121 L30,130" stroke="#4caf50" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M200,130 L202,122 L204,130 L206,121 L208,130" stroke="#4caf50" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M376,130 L378,122 L380,130 L382,121 L384,130" stroke="#4caf50" stroke-width="2" fill="none" stroke-linecap="round"/>
       </svg>
     </div>
 

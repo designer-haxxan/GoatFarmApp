@@ -308,3 +308,175 @@ button.list-row { width: 100%; background: none; border-left: 0; border-right: 0
 
 /* Text pink for female icon */
 .text-pink { color: #e91e63; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GOAT FARM ANIMATIONS & ENHANCED VISUALS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Keyframes ─────────────────────────────────────────────────────────────── */
+@keyframes goat-bob {
+  0%, 100% { transform: translateY(0)    rotate(0deg); }
+  28%      { transform: translateY(-10px) rotate(-1.8deg); }
+  72%      { transform: translateY(-5px)  rotate(0.9deg); }
+}
+@keyframes mascot-enter {
+  from { opacity: 0; transform: translateY(28px) scale(.78); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+@keyframes card-slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes cloud-drift {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(14px); }
+}
+@keyframes cloud-drift-r {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(-13px); }
+}
+@keyframes sun-pulse {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 0  8px rgba(255,224,80,.22), 0 0 0 22px rgba(255,224,80,.08); }
+  50%      { transform: scale(1.08); box-shadow: 0 0 0 14px rgba(255,224,80,.28), 0 0 0 34px rgba(255,224,80,.11); }
+}
+@keyframes bird-fly {
+  from { transform: translateX(0) translateY(0);                opacity: 0; }
+  5%   { opacity: 1; }
+  93%  { opacity: 0.75; }
+  to   { transform: translateX(calc(100vw + 120px)) translateY(-22px); opacity: 0; }
+}
+@keyframes tile-pop {
+  from { opacity: 0; transform: translateY(16px) scale(.88); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+@keyframes content-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes login-bg-breathe {
+  0%, 100% { background-position:   0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@keyframes shimmer-in {
+  from { opacity: 0; transform: scaleX(.2); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+/* ── Animated login background ──────────────────────────────────────────────── */
+#view-login {
+  background-size: 220% 220%;
+  animation: login-bg-breathe 14s ease infinite;
+}
+[data-bs-theme="dark"] #view-login { animation-duration: 22s; }
+
+/* ── Sky layer ──────────────────────────────────────────────────────────────── */
+.login-sky { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+
+/* Sun */
+.login-sun-orb {
+  position: absolute;
+  top: 7%; right: 9%;
+  width: 58px; height: 58px;
+  background: radial-gradient(circle at 36% 36%, #fff9c4, #ffca28 52%, #ffa000);
+  border-radius: 50%;
+  animation: sun-pulse 5.5s ease-in-out infinite;
+}
+[data-bs-theme="dark"] .login-sun-orb { display: none; }
+
+/* Moon (dark mode) */
+.login-moon-orb {
+  display: none;
+  position: absolute;
+  top: 8%; right: 10%;
+  width: 44px; height: 44px;
+  background: #dde8c0;
+  border-radius: 50%;
+  box-shadow: -9px -3px 0 0 #0a1a0a, inset 0 0 14px rgba(255,255,200,.12);
+}
+[data-bs-theme="dark"] .login-moon-orb { display: block; }
+
+/* CSS Clouds */
+.lc { position: absolute; background: rgba(255,255,255,.82); border-radius: 50px; pointer-events: none; }
+.lc::before, .lc::after { content: ''; position: absolute; background: rgba(255,255,255,.82); border-radius: 50%; }
+[data-bs-theme="dark"] .lc,
+[data-bs-theme="dark"] .lc::before,
+[data-bs-theme="dark"] .lc::after { background: rgba(55,75,100,.26); }
+
+.lc1 { width: 98px; height: 28px; top: 5%; left: 3%;  animation: cloud-drift 9.5s ease-in-out infinite; }
+.lc1::before { width: 52px; height: 52px; top: -25px; left: 10px; }
+.lc1::after  { width: 38px; height: 38px; top: -18px; left: 48px; }
+
+.lc2 { width: 74px; height: 22px; top: 3%; left: 36%; animation: cloud-drift-r 12s ease-in-out infinite; animation-delay: -4s; }
+.lc2::before { width: 40px; height: 40px; top: -19px; left: 8px; }
+.lc2::after  { width: 28px; height: 28px; top: -13px; left: 37px; }
+
+.lc3 { width: 86px; height: 25px; top: 9%; right: 5%; animation: cloud-drift 13.5s ease-in-out infinite; animation-delay: -7s; }
+.lc3::before { width: 46px; height: 46px; top: -22px; left: 10px; }
+.lc3::after  { width: 32px; height: 32px; top: -15px; left: 42px; }
+
+/* Birds */
+.login-bird { position: absolute; pointer-events: none; width: 28px; height: 14px; }
+.login-bird::before, .login-bird::after {
+  content: '';
+  position: absolute;
+  width: 13px; height: 8px;
+  border-top: 2.5px solid rgba(30,100,40,.65);
+  border-radius: 50% 50% 0 0;
+}
+.login-bird::before { left: 0;    top: 0; transform: rotate(-9deg); }
+.login-bird::after  { left: 14px; top: 0; transform: rotate(9deg);  }
+
+.lb1 { top: 16%; left: -65px; animation: bird-fly 26s linear infinite; }
+.lb2 { top: 11%; left: -65px; animation: bird-fly 34s linear infinite; animation-delay: -12s; }
+
+/* ── Mascot entrance + continuous bob ───────────────────────────────────────── */
+.login-mascot { animation: mascot-enter .65s cubic-bezier(.34,1.56,.64,1) both .1s; }
+.login-goat-svg { animation: goat-bob 3.8s ease-in-out infinite .75s; }
+
+/* ── Login card entrance ────────────────────────────────────────────────────── */
+.login-card { animation: card-slide-up .52s ease-out both .28s; }
+
+/* ── App content page transition ────────────────────────────────────────────── */
+#content { animation: content-in .35s ease-out both; }
+
+/* ── Stat tile entrance + hover lift ────────────────────────────────────────── */
+.stat-tile {
+  animation: tile-pop .48s cubic-bezier(.34,1.56,.64,1) both;
+  transition: transform .22s ease, box-shadow .22s ease;
+  cursor: default;
+}
+.stat-tile:hover { transform: translateY(-5px) scale(1.04); box-shadow: 0 12px 30px rgba(46,125,50,.16); }
+.stat-tile:nth-child(1) { animation-delay:   0ms; }
+.stat-tile:nth-child(2) { animation-delay:  90ms; }
+.stat-tile:nth-child(3) { animation-delay: 180ms; }
+.stat-tile:nth-child(4) { animation-delay: 270ms; }
+
+/* ── Dashboard chart card hover ─────────────────────────────────────────────── */
+.dash-chart-card { transition: transform .22s ease, box-shadow .22s ease; }
+.dash-chart-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+
+/* ── Horizontal bar animated fill ───────────────────────────────────────────── */
+.dbar-fill { animation: shimmer-in .8s cubic-bezier(.25,.46,.45,.94) both; transform-origin: left; }
+
+/* ── Nav link smooth slide indent ───────────────────────────────────────────── */
+.nav-menu .nav-link { transition: background .14s, color .14s, border-left-color .14s, padding-left .14s; }
+.nav-menu .nav-link:hover:not(.active) { padding-left: 22px; }
+
+/* ── Bottom nav press feedback ──────────────────────────────────────────────── */
+#bottom-nav a { transition: color .15s, transform .12s; }
+#bottom-nav a:active { transform: scale(.88); }
+#bottom-nav a.active { transform: scale(1.06); }
+
+/* ── Animal card hover ──────────────────────────────────────────────────────── */
+.animal-card { transition: transform .18s ease, box-shadow .18s ease; }
+.animal-card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,.09); }
+
+/* ── List row slide-in ──────────────────────────────────────────────────────── */
+.list-card .list-row { transition: background .12s; }
+
+/* ── Reduce motion: respect system preference ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .login-goat-svg, .login-mascot, .login-card, .lc, .lb1, .lb2,
+  .login-sun-orb, #view-login, .stat-tile, #content, .dbar-fill { animation: none !important; }
+  .stat-tile, .dash-chart-card, .nav-menu .nav-link, #bottom-nav a, .animal-card { transition: none !important; }
+}
