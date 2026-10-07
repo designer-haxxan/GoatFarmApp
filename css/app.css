@@ -357,6 +357,52 @@ button.list-row { width: 100%; background: none; border-left: 0; border-right: 0
   0%, 100% { background-position:   0% 50%; }
   50%      { background-position: 100% 50%; }
 }
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(1.2deg); }
+}
+@keyframes sway-r {
+  0%, 100% { transform: rotate(0deg); }
+  50%      { transform: rotate(-1.1deg); }
+}
+@keyframes blink {
+  0%, 49%, 100% { opacity: 1; }
+  50%, 99% { opacity: 0; }
+}
+@keyframes bounce-big {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(46,125,50,.6)); }
+  50%      { filter: drop-shadow(0 0 10px rgba(46,125,50,.9)); }
+}
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33%      { transform: translateY(-4px) rotate(.8deg); }
+  66%      { transform: translateY(-2px) rotate(-.6deg); }
+}
+@keyframes wobble-fence {
+  0%, 100% { transform: scaleX(1) skewY(0deg); }
+  50%      { transform: scaleX(0.98) skewY(.3deg); }
+}
+@keyframes water-wave {
+  0%, 100% { d: path('M0,10 Q25,5 50,10 T100,10 L100,15 Q75,20 50,15 T0,15Z'); }
+  50%      { d: path('M0,12 Q25,8 50,12 T100,12 L100,13 Q75,18 50,13 T0,13Z'); }
+}
+@keyframes counter-pop {
+  0%   { opacity: 0; transform: translateY(8px) scale(.7); }
+  50%  { opacity: 1; transform: translateY(-2px) scale(1.15); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes milk-pour {
+  0%   { clip-path: inset(100% 0 0 0); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+@keyframes barn-door-creak {
+  0%, 100% { transform: perspective(600px) rotateY(0deg); }
+  50%      { transform: perspective(600px) rotateY(2deg); }
+}
 @keyframes shimmer-in {
   from { opacity: 0; transform: scaleX(.2); }
   to   { opacity: 1; transform: scaleX(1); }
@@ -433,6 +479,28 @@ button.list-row { width: 100%; background: none; border-left: 0; border-right: 0
 .login-mascot { animation: mascot-enter .65s cubic-bezier(.34,1.56,.64,1) both .1s; }
 .login-goat-svg { animation: goat-bob 3.8s ease-in-out infinite .75s; }
 
+/* Animated landscape elements */
+.farm-grass { animation: sway 3.2s ease-in-out infinite; transform-origin: bottom center; }
+.farm-grass-2 { animation: sway-r 2.8s ease-in-out infinite; transform-origin: bottom center; animation-delay: .4s; }
+.farm-grazer { animation: float-gentle 4.5s ease-in-out infinite; }
+.farm-grazer-2 { animation: float-gentle 5.2s ease-in-out infinite; animation-delay: 1s; }
+.farm-fence-post { animation: wobble-fence 2.8s ease-in-out infinite; transform-origin: bottom center; }
+.farm-water { animation: water-wave 2s ease-in-out infinite; }
+.farm-leaf { animation: sway 2.2s ease-in-out infinite; transform-origin: top center; }
+
+/* Blinking eyes on mascot and distant animals */
+.goat-eye-l, .goat-eye-r { animation: blink 3.5s ease-in-out infinite; }
+.goat-eye-l { animation-delay: .2s; }
+.goat-eye-r { animation-delay: .6s; }
+
+/* Sway trees in the landscape SVG */
+.farm-svg g[class*="lc"] { transform-origin: center bottom; animation: sway 2.5s ease-in-out infinite; }
+.farm-svg polygon { transform-origin: center bottom; }
+
+/* Bobbing goat silhouettes */
+.farm-grazer { transform-origin: center; }
+.farm-grazer-2 { transform-origin: center; }
+
 /* ── Login card entrance ────────────────────────────────────────────────────── */
 .login-card { animation: card-slide-up .52s ease-out both .28s; }
 
@@ -442,25 +510,88 @@ button.list-row { width: 100%; background: none; border-left: 0; border-right: 0
 /* ── Stat tile entrance + hover lift ────────────────────────────────────────── */
 .stat-tile {
   animation: tile-pop .48s cubic-bezier(.34,1.56,.64,1) both;
-  transition: transform .22s ease, box-shadow .22s ease;
-  cursor: default;
+  transition: all .22s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(46,125,50,.15);
 }
-.stat-tile:hover { transform: translateY(-5px) scale(1.04); box-shadow: 0 12px 30px rgba(46,125,50,.16); }
+.stat-tile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(46,125,50,.08) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.stat-tile:hover {
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 16px 40px rgba(46,125,50,.2);
+  border-color: rgba(46,125,50,.35);
+}
+.stat-tile:hover::before { opacity: 1; }
+.stat-tile:active { transform: translateY(-4px) scale(1.05); }
 .stat-tile:nth-child(1) { animation-delay:   0ms; }
 .stat-tile:nth-child(2) { animation-delay:  90ms; }
 .stat-tile:nth-child(3) { animation-delay: 180ms; }
 .stat-tile:nth-child(4) { animation-delay: 270ms; }
 
+/* Bouncing counter numbers in stat tiles */
+.st-val { animation: counter-pop .6s cubic-bezier(.34,1.56,.64,1) both; }
+.stat-tile:nth-child(1) .st-val { animation-delay: 400ms; }
+.stat-tile:nth-child(2) .st-val { animation-delay: 490ms; }
+.stat-tile:nth-child(3) .st-val { animation-delay: 580ms; }
+.stat-tile:nth-child(4) .st-val { animation-delay: 670ms; }
+
 /* ── Dashboard chart card hover ─────────────────────────────────────────────── */
-.dash-chart-card { transition: transform .22s ease, box-shadow .22s ease; }
-.dash-chart-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+.dash-chart-card {
+  transition: all .28s ease;
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(46,125,50,.12);
+}
+.dash-chart-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(46,125,50,.05) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.dash-chart-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 36px rgba(46,125,50,.15);
+  border-color: rgba(46,125,50,.25);
+}
+.dash-chart-card:hover::before { opacity: 1; }
+
+/* Animated chart title */
+.dash-chart-title { animation: content-in .4s ease-out both; font-weight: 800; letter-spacing: .08em; }
 
 /* ── Horizontal bar animated fill ───────────────────────────────────────────── */
 .dbar-fill { animation: shimmer-in .8s cubic-bezier(.25,.46,.45,.94) both; transform-origin: left; }
 
 /* ── Nav link smooth slide indent ───────────────────────────────────────────── */
-.nav-menu .nav-link { transition: background .14s, color .14s, border-left-color .14s, padding-left .14s; }
-.nav-menu .nav-link:hover:not(.active) { padding-left: 22px; }
+.nav-menu .nav-link {
+  transition: all .18s ease;
+  position: relative;
+}
+.nav-menu .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(46,125,50,.8) 0%, rgba(46,125,50,0) 100%);
+  transition: width .22s ease;
+}
+.nav-menu .nav-link:hover:not(.active) {
+  padding-left: 24px;
+  background: rgba(46,125,50,.06);
+}
+.nav-menu .nav-link:hover:not(.active)::after { width: 100%; }
 
 /* ── Bottom nav press feedback ──────────────────────────────────────────────── */
 #bottom-nav a { transition: color .15s, transform .12s; }
